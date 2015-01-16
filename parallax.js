@@ -5,7 +5,7 @@
 //
 // Author: Keycher;
 //
-// version: 0.3;
+// version: 0.36;
 //------------------
 
 (function ($) {
@@ -14,19 +14,27 @@
 		isIE		:	 false || !!document.documentMode,
 		isOpera		:	 !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0,
 		isFirefox	:	 typeof InstallTrigger !== 'undefined',
-		isChrome	:	 !!window.chrome
+		isChrome	:	 !!window.chrome || navigator.userAgent.indexOf(' Chrome/') >= 0
 	},	zIndex = 0;
 		
 	$.fn.KeyParallax = function (setting) {
 		
 		zIndex = zIndex + 1;
 		
-		//console.log(zIndex);
+		//console.log(browser.isChrome);
 		
 		var options = $.extend({
-			speed	:	0.5,
-			side	:	'bottom-top'
-		}, setting),
+				speed	:	0.5,
+				side	:	'bottom-top',
+				animate	:	'pulse'
+			}, setting),
+			
+			functions = {
+				animate : function () {},
+				scroll : function () {
+					$this.css({'top' : elemChangePos + 'px'});
+				}
+			},
 		
 		//Начальные Переменные
 			$this = $(this),
@@ -35,6 +43,9 @@
 		
 		// Переменные с условиями
 			symbol = (options.side === 'bottom-top') ? 1 : -1,
+			
+		//Новые переменные
+			classAnimate = options.animate + ' animated',
 		
 		//Переменные other
 			windowHeight = $window.height(),
@@ -53,7 +64,7 @@
 		$this.css('top', elemStartPos + 'px');
 		
 		if (scroll - elemChangePos <= elemOffset + elemHeight || scroll - elemChangePos + windowHeight >= elemOffset) {
-			$this.addClass('pulse animated');
+			$this.addClass(classAnimate);
 		}
 		
 		//Scroll
@@ -62,16 +73,15 @@
 			scroll = $window.scrollTop();
 			elemCenterWindow = elemOffsetDocument - scroll;	// if = 0, center;
 			elemChangePos = elemStartPos - symbol * scroll * options.speed;
-				
-			if (scroll - elemChangePos >= elemOffset + elemHeight || scroll - elemChangePos + windowHeight <= elemOffset) {
-				$this.removeClass('pulse animated');
-			} else {
-				$this.addClass('pulse animated');
-			}
-							
-			$this.css({'top' : elemChangePos + 'px'});
 			
-			//console.log(scroll);
+			if (scroll - elemChangePos >= elemOffset + elemHeight || scroll - elemChangePos + windowHeight <= elemOffset) {
+				$this.removeClass(classAnimate);
+			} else {
+				$this.addClass(classAnimate);
+			}
+			
+			functions.scroll();
+			
 		});
 	};
 })(jQuery);
