@@ -5,7 +5,7 @@
 //
 // Author: Keycher;
 //
-// version: 0.36;
+// version: 0.41;
 //------------------
 
 (function ($) {
@@ -26,16 +26,10 @@
 		var options = $.extend({
 				speed	:	0.5,
 				side	:	'bottom-top',
-				animate	:	'pulse'
+				animateClass	:	'pulse',
+				animate	:	'default'
 			}, setting),
 			
-			functions = {
-				animate : function () {},
-				scroll : function () {
-					$this.css({'top' : elemChangePos + 'px'});
-				}
-			},
-		
 		//Начальные Переменные
 			$this = $(this),
 			$window = $(window),
@@ -45,7 +39,7 @@
 			symbol = (options.side === 'bottom-top') ? 1 : -1,
 			
 		//Новые переменные
-			classAnimate = options.animate + ' animated',
+			classAnimate = options.animateClass + ' animated',
 		
 		//Переменные other
 			windowHeight = $window.height(),
@@ -57,7 +51,29 @@
 			elemStartPos = symbol * elemOffsetDocument * options.speed,
 			scroll = 0,
 			elemCenterWindow = elemOffsetDocument - scroll,
-			elemChangePos = elemStartPos - symbol * scroll * options.speed;
+			elemChangePos = elemStartPos - symbol * scroll * options.speed,
+		
+		// Functions
+			functions = {
+				animate : {
+					default : function () {
+						if (scroll - elemChangePos >= elemOffset + elemHeight || scroll - elemChangePos + windowHeight <= elemOffset) {
+							$this.removeClass(classAnimate);
+						} else {
+							$this.addClass(classAnimate);
+						}
+					},
+					stepFadeIn : function () {
+						if (scroll - elemChangePos >= elemOffset + elemHeight || scroll - elemChangePos + windowHeight <= elemOffset) {
+							alert('work');
+						}
+					}
+					
+				},
+				scroll : function () {
+					$this.css({'top' : elemChangePos + 'px'});
+				}
+			};
 		
 		
 		//Start
@@ -74,12 +90,7 @@
 			elemCenterWindow = elemOffsetDocument - scroll;	// if = 0, center;
 			elemChangePos = elemStartPos - symbol * scroll * options.speed;
 			
-			if (scroll - elemChangePos >= elemOffset + elemHeight || scroll - elemChangePos + windowHeight <= elemOffset) {
-				$this.removeClass(classAnimate);
-			} else {
-				$this.addClass(classAnimate);
-			}
-			
+			functions.animate[options.animate]();
 			functions.scroll();
 			
 		});
