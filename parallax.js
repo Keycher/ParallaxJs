@@ -5,23 +5,14 @@
 //
 // Author: Keycher;
 //
-// version: 0.41;
+// version: 0.43;
 //------------------
 
 (function ($) {
 	'use strict';
-	var browser = {
-		isIE		:	 false || !!document.documentMode,
-		isOpera		:	 !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0,
-		isFirefox	:	 typeof InstallTrigger !== 'undefined',
-		isChrome	:	 !!window.chrome || navigator.userAgent.indexOf(' Chrome/') >= 0
-	},	zIndex = 0;
-		
 	$.fn.KeyParallax = function (setting) {
 		
-		zIndex = zIndex + 1;
-		
-		//console.log(browser.isChrome);
+	$.each(this, function () {
 		
 		var options = $.extend({
 				speed	:	0.5,
@@ -30,6 +21,7 @@
 				animate	:	'default'
 			}, setting),
 			
+					
 		//Начальные Переменные
 			$this = $(this),
 			$window = $(window),
@@ -37,9 +29,7 @@
 		
 		// Переменные с условиями
 			symbol = (options.side === 'bottom-top') ? 1 : -1,
-			
-		//Новые переменные
-			classAnimate = options.animateClass + ' animated',
+			classAnimate = (options.animateClass === 'none') ? '' : options.animateClass + ' animated',
 		
 		//Переменные other
 			windowHeight = $window.height(),
@@ -49,9 +39,12 @@
 			elemOffsetWindow = windowHeight - elemHeight,
 			elemOffsetDocument = elemOffsetWindow / 2 - elemOffsetPos,
 			elemStartPos = symbol * elemOffsetDocument * options.speed,
-			scroll = 0,
+			scroll = $window.scrollTop(),
 			elemCenterWindow = elemOffsetDocument - scroll,
 			elemChangePos = elemStartPos - symbol * scroll * options.speed,
+			
+		//Переменные анимаций
+			animOpacity = 0,
 		
 		// Functions
 			functions = {
@@ -64,11 +57,22 @@
 						}
 					},
 					stepFadeIn : function () {
-						if (scroll - elemChangePos >= elemOffset + elemHeight || scroll - elemChangePos + windowHeight <= elemOffset) {
-							alert('work');
+						animOpacity = (100 - Math.abs(elemCenterWindow * 100 / (windowHeight + Math.abs(elemChangePos)))) / 100;
+						if (elemCenterWindow >= 0) {
+							$this.css('opacity', animOpacity);
 						}
+						
+					},
+					stepFadeOut : function () {
+						animOpacity = (100 - Math.abs(elemCenterWindow * 100 / (windowHeight + Math.abs(elemChangePos)))) / 100;
+						if (elemCenterWindow <= 0) {
+							$this.css('opacity', animOpacity);
+						}
+					},
+					stepFadeInOut : function () {
+						animOpacity = (100 - Math.abs(elemCenterWindow * 100 / (windowHeight + Math.abs(elemChangePos)))) / 100;
+						$this.css('opacity', animOpacity);
 					}
-					
 				},
 				scroll : function () {
 					$this.css({'top' : elemChangePos + 'px'});
@@ -77,11 +81,8 @@
 		
 		
 		//Start
-		$this.css('top', elemStartPos + 'px');
-		
-		if (scroll - elemChangePos <= elemOffset + elemHeight || scroll - elemChangePos + windowHeight >= elemOffset) {
-			$this.addClass(classAnimate);
-		}
+		functions.scroll();		
+		functions.animate[options.animate]();
 		
 		//Scroll
 		$window.scroll(function () {
@@ -94,5 +95,6 @@
 			functions.scroll();
 			
 		});
+	});
 	};
 })(jQuery);
