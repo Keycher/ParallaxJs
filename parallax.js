@@ -1,11 +1,11 @@
-/* OneX studio (onexstudio.com) | parallax.js */
+/* Keycher | parallax.js */
 
 //------------------
 // Parallax effect;
 //
 // Author: Keycher;
 //
-// version: 0.43;
+// version: 0.11;
 //------------------
 
 (function ($) {
@@ -18,6 +18,7 @@
 				speed	:	0.5,
 				side	:	'bottom-top',
 				animateClass	:	'pulse',
+				animateCycle	:	'no',
 				animate	:	'default'
 			}, setting),
 			
@@ -30,6 +31,7 @@
 		// Переменные с условиями
 			symbol = (options.side === 'bottom-top') ? 1 : -1,
 			classAnimate = (options.animateClass === 'none') ? '' : options.animateClass + ' animated',
+			cycleAnimate = (options.animateCycle === 'no') ? 0 : 1,
 		
 		//Переменные other
 			windowHeight = $window.height(),
@@ -51,7 +53,9 @@
 				animate : {
 					default : function () {
 						if (scroll - elemChangePos >= elemOffset + elemHeight || scroll - elemChangePos + windowHeight <= elemOffset) {
-							$this.removeClass(classAnimate);
+							if (cycleAnimate === 1) {
+								$this.removeClass(classAnimate);
+							}
 						} else {
 							$this.addClass(classAnimate);
 						}
