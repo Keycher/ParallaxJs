@@ -1,5 +1,5 @@
 # ParallaxJs
-ParallaxJs
-Author: Keycher \n
-Version: 0.11(b) \n
-License: MIT \n
+ParallaxJs  
+Author: Keycher  
+Version: 0.11(b)  
+License: MIT
