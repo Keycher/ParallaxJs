@@ -1,0 +1,88 @@
+/*  RESET.css by SunKey Studio  */
+body {
+    -webkit-font-smoothing: antialiased;
+}
+html,body,div,span,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+abbr,address,cite,code,
+del,dfn,em,img,ins,kbd,q,samp,
+small,strong,sub,sup,var,
+input,select,button,
+b,i,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary,
+time,mark,audio,video {
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display: block;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+fieldset,img {
+    border: 0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+    font-weight: normal;
+    font-style: normal;
+}
+ol,ul {
+    list-style: none;
+}
+caption,th {
+    text-align: left;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+    font-size: 100%;
+}
+blockquote:before,blockquote:after,q:before,q:after {
+    content: '';
+    content: none;
+}
+abbr,acronym {
+    border: 0;
+}
+input,select,button {
+    border: none;
+}
+input:focus,select:focus,textarea:focus {
+    outline: none;
+}
+:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+:focus::-moz-placeholder {
+    color: transparent;
+}
+:focus::placeholder {
+    color: transparent;
+}
+.clearfix:before {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix {
+    zoom: 1;
+}
+img {
+	display: block;
+}
+*:target {
+	outline: none;
+}

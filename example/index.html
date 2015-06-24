@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>ParallaxJs</title>
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic&subset=cyrillic,latin' rel='stylesheet'>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/jquery.smoothscroll.js"></script>
+	<script src="js/parallax.js"></script>
+	<script src="js/libs.js"></script>
+</head>
+<body>
+<header class="header">
+	<ul class="header_nav">
+		<li class="header_nav-li"><a href="#example" class="header_nav--link">Example</a></li>
+		<li class="header_nav-li"><a href="https://github.com/Keycher/ParallaxJs" class="header_nav--link">Download</a></li>
+	</ul>
+</header>
+<section class="documentation">
+	<h1>ParallaxJs</h1>
+	<h2>Add to head</h2>
+	<p>
+		&lt;link href="css/animate.css" rel="stylesheet"&gt; <br>
+		&lt;script src="jquery.smoothscroll.js"&gt;&lt/script&gt; <span>// Fix chrome scroll</span><br>
+		&lt;script src="parallax.js"&gt;&lt/script&gt; <span>*Need jQuery</span><br>
+	</p>
+	<h2>Use</h2>
+	<p>
+		$('.example_block').KeyParallax({ <br>
+		&nbsp;&nbsp;&nbsp;&nbsp;speed : 0.5, <br>
+		&nbsp;&nbsp;&nbsp;&nbsp;side : 'bottom-top', <br>
+		&nbsp;&nbsp;&nbsp;&nbsp;animate : 'default', <br>
+		&nbsp;&nbsp;&nbsp;&nbsp;animateClass : 'pulse', <br>
+		&nbsp;&nbsp;&nbsp;&nbsp;animateCycle : 'no' <br>
+		}); <br>
+	</p>
+	<h2>Configuration</h2>
+	<p>
+		speed : 0.5, <span>// Speed scroll {any number}</span> <br>
+		side : 'bottom-top', <span>// Side scroll {bottom-top, top-bottom}</span> <br>
+		animate : 'default', <span>// Animation {default, stepFadeIn, stepFadeOut, stepFadeInOut} <br>
+		*if animate not 'default' animateClass and animateCycle not work</span> <br>
+		animateClass : 'pulse', <span>// Аnimation class element {<a href="http://daneden.github.io/animate.css/">Look here</a>}</span> <br>
+		animateCycle : 'no' <span>// Repeat animation {yes, no}</span> <br>
+	</p>
+</section>
+<section class="example" id="example">
+	<h2>Example</h2>
+	<div class="example_names">default</div>
+	<div class="example_names">speed:1.2</div>
+	<div class="example_names">other side</div>
+	<div class="example_names">other side + speed</div>
+	<div class="example_use">
+		<div class="example_block--standart-start"></div>
+		<div class="example_block--standart"></div>
+	</div>
+	<div class="example_use">
+		<div class="example_block--standart-start"></div>
+		<div class="example_block--standart"></div>
+	</div>
+	<div class="example_use">
+		<div class="example_block--standart-start"></div>
+		<div class="example_block--standart"></div>
+	</div>
+	<div class="example_use">
+		<div class="example_block--standart-start"></div>
+		<div class="example_block--standart"></div>
+	</div>
+</section>
+<section class="example">
+	<h2>Example 2</h2>
+	<div class="example_names">other animateClass</div>
+	<div class="example_names">animateClass + Cycle</div>
+	<div class="example_names">animate stepFadeInOut</div>
+	<div class="example_names">All in one</div>
+	<div class="example_use">
+		<div class="example_block--standart-start"></div>
+		<div class="example_block--standart"></div>
+	</div>
+	<div class="example_use">
+		<div class="example_block--standart-start">Scroll Up, Scroll Down</div>
+		<div class="example_block--standart"></div>
+	</div>
+	<div class="example_use">
+		<div class="example_block--standart-start">Slowly Scroll Up</div>
+		<div class="example_block--standart"></div>
+	</div>
+	<div class="example_use">
+		<div class="example_block--standart-start"></div>
+		<div class="example_block--standart"></div>
+	</div>
+</section>
+<section class="project">
+	<h2>Project use ParallaxJs</h2>
+	<ul class="project_list">
+		<li><a href="http://asphere.ws/">Asphere - веб-студия полного цикла</a></li>
+	</ul>
+</section>
+</body>
+</html>

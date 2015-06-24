@@ -1,0 +1,149 @@
+@charset "utf-8";
+/* Keycher | style.css | Chrome, Opera, Fox */
+
+body {
+	font:16px 'PT Sans', sans-serif;
+	color:#4c4c4c;
+	position:relative;
+	background:#eee;
+}
+
+h1 {
+	font-size:64px;
+	font-weight:bold;
+}
+h2 {
+	font-size:28px;
+	font-weight:bold;
+	border-bottom:1px solid rgba(0,0,0,0.4);
+	margin:8px 0;
+}
+a {
+	color:#aaa;
+	text-decoration:none;
+}
+a:hover {
+	color:#eee;
+}
+
+.header {
+	background:#222;
+}
+.header_nav {
+	font-size:0;
+	width:960px;
+	margin:0 auto;
+}
+.header_nav-li {
+	display:inline-block;
+}
+.header_nav--link {
+	display:block;
+	color:#aaa;
+	text-decoration:none;
+	font-size:16px;
+	padding:18px 24px;
+}
+.header_nav--link:hover {
+	background:#111;
+	color:#eee;
+}
+
+.documentation {
+	width:960px;
+	margin:20px auto;
+}
+.documentation p {
+	margin:8px 0;
+	background:#222;
+	color:#eee;
+	padding:8px 8px 8px 36px;
+	position:relative;
+	line-height:1.8;
+}
+.documentation p:before {
+	content:" ";
+	position:absolute;
+	height:100%;
+	top:0;
+	left:24px;
+	border-right:1px dashed #333;
+}
+.documentation p span {
+	color:#46823E;
+	padding-left:12px;
+}
+
+.example {
+	width:960px;
+	margin:60px auto;
+	font-size:0;
+}
+.example_names {
+	width:200px;
+	display:inline-block;
+	margin:0 53px 8px 0;
+	font-size:18px;
+	text-align:center;
+}
+.example_use {
+	width:200px;
+	height:760px;
+	overflow:hidden;
+	border:3px solid #aaa;
+	position:relative;
+	display:inline-block;
+	margin:0 53px 0 0;
+	box-sizing:border-box;
+}
+.example_use:last-child {
+	margin:0;
+}
+.example_names:nth-of-type(4) {
+	margin:0;
+}
+.example_block--standart,
+.example_block--standart-start {
+	background:#222;
+	width:200px;
+	height:200px;
+	position:absolute;
+	margin:280px 0;
+}
+.example_block--standart-start {
+	z-index:2;
+	background:#aaa;
+	opacity:0.6;
+	font-size:16px;
+	text-align:center;
+}
+
+.project {
+	width:960px;
+	margin:0 auto 40px;
+}
+.project_list {
+	margin:8px 0;
+	background:#222;
+	color:#eee;
+	padding:8px 8px 8px 34px;
+	position:relative;
+	line-height:1.8;
+	list-style-type:decimal;
+	text-indent:6px;
+}
+.project_list:before {
+	content:" ";
+	position:absolute;
+	height:100%;
+	top:0;
+	left:32px;
+	border-right:1px dashed #333;
+}
+
+/*   ANIMATION   */
+a {
+	-webkit-transition:all .1s ease-in;
+	-moz-transition:all .1s ease-in;
+	transition:all .1s ease-in;
+}
