@@ -5,7 +5,7 @@
 //
 // Author: Keycher;
 //
-// version: 0.12;
+// version: 0.13;
 //------------------
 
 (function ($) {
@@ -36,12 +36,13 @@
 			cycleAnimate = (options.animateCycle === 'no') ? 0 : 1,
 
 		//Element
+			elemTopAbsolute = parseInt($this.css('top')),
 			elemOffset = $this.offset().top,
 			elemHeight = $this.height(),
 			elemOffsetPos = windowHeight - (elemOffset + elemHeight),
 			elemOffsetWindow = windowHeight - elemHeight,
 			elemOffsetDocument = elemOffsetWindow / 2 - elemOffsetPos,
-			elemStartPos = symbol * elemOffsetDocument * options.speed,
+			elemStartPos = elemTopAbsolute + symbol * elemOffsetDocument * options.speed,
 			elemCenterWindow = elemOffsetDocument - scroll,
 			elemChangePos = elemStartPos - symbol * scroll * options.speed,
 
