@@ -118,6 +118,27 @@ a:hover {
 	text-align:center;
 }
 
+.example_use.pos-top .example_block--standart,
+.example_use.pos-top .example_block--standart-start {
+	top:50px;
+	margin:0;
+}
+.example_use.pos-bot .example_block--standart,
+.example_use.pos-bot .example_block--standart-start {
+	bottom:50px;
+	margin:0;
+}
+.example_use.pos-n-top .example_block--standart,
+.example_use.pos-n-top .example_block--standart-start {
+	top:-50px;
+	margin:0;
+}
+.example_use.pos-n-bot .example_block--standart,
+.example_use.pos-n-bot .example_block--standart-start {
+	bottom:-50px;
+	margin:0;
+}
+
 .project {
 	width:960px;
 	margin:0 auto 40px;

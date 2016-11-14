@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
 	'use strict';
-	$('.example_block--standart').eq(0).KeyParallax({});
+	$('.example_block--standart').eq(0).KeyParallax();
 	$('.example_block--standart').eq(1).KeyParallax({
 		speed:1.2
 	});
@@ -13,6 +13,7 @@ $(document).ready(function () {
 		side:'top-bottom',
 		speed:1.2
 	});
+
 	$('.example_block--standart').eq(4).KeyParallax({
 		animateClass : 'wobble'
 	});
@@ -29,5 +30,18 @@ $(document).ready(function () {
 		speed:0.3,
 		animateClass : 'flip',
 		animateCycle : 'yes'
+	});
+
+	$('.example_block--standart').eq(8).KeyParallax({
+		animateClass : 'wobble'
+	});
+	$('.example_block--standart').eq(9).KeyParallax({
+		animateClass : 'wobble'
+	});
+	$('.example_block--standart').eq(10).KeyParallax({
+		animateClass : 'wobble'
+	});
+	$('.example_block--standart').eq(11).KeyParallax({
+		animateClass : 'wobble'
 	});
 });
